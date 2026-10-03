@@ -4,18 +4,18 @@ Um quadro Kanban simples em HTML, CSS e JavaScript.
 
 ## Como abrir
 
-Abra o arquivo `index.html` no navegador ou rode um servidor local na pasta do projeto.
+A forma mais fácil é clicar no arquivo `start_localhost.bat` dentro da pasta do projeto.
 
-Exemplo:
+Ele abre automaticamente o navegador em:
+
+http://localhost:8000
+
+Se preferir rodar manualmente:
 
 ```bash
 cd "C:\Users\Capitão Flint\KanbanMob"
-python -m http.server 8000
+"C:\Users\Capitão Flint\AppData\Local\Python\pythoncore-3.12-64\python.exe" -m http.server 8000
 ```
-
-Depois acesse:
-
-http://localhost:8000
 
 ## Funcionalidades
 

@@ -7,44 +7,121 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="app">
+    <div id="loginScreen" class="login-screen">
+      <div class="login-card">
+        <p class="eyebrow">Acesso</p>
+        <h2>Entrar no KanbanMob</h2>
+
+        <form id="loginForm" class="login-form">
+          <label>
+            <span>Usuário</span>
+            <input id="loginUser" type="text" placeholder="Digite o usuário" required />
+          </label>
+
+          <label>
+            <span>Senha</span>
+            <input id="loginPassword" type="password" placeholder="Digite a senha" required />
+          </label>
+
+          <button type="submit" class="primary-btn full-width">Entrar</button>
+          <p id="loginError" class="login-error hidden">Usuário ou senha inválidos.</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="app hidden">
       <header class="topbar">
         <div>
           <p class="eyebrow">Board</p>
           <h1>KanbanMob</h1>
         </div>
-        <button id="addTaskBtn" class="primary-btn">+ Nova tarefa</button>
+
+        <div class="topbar-actions">
+          <label class="user-picker" for="userSelector">
+            <span>Usuário</span>
+            <select id="userSelector">
+              <option value="ana">Ana</option>
+              <option value="bruno">Bruno</option>
+              <option value="carla">Carla</option>
+            </select>
+          </label>
+          <button id="logoutBtn" type="button" class="secondary-btn">Sair</button>
+          <button id="newBoardBtn" class="primary-btn">+ Novo quadro</button>
+        </div>
       </header>
 
-      <form id="taskForm" class="task-form hidden">
-        <input id="taskInput" type="text" maxlength="80" placeholder="Descreva a tarefa" required />
-        <button type="submit" class="primary-btn">Adicionar</button>
-        <button type="button" id="cancelTaskBtn" class="secondary-btn">Cancelar</button>
+      <form id="boardForm" class="board-form hidden">
+        <div class="board-form-grid">
+          <label>
+            <span>Nome do quadro</span>
+            <input id="boardNameInput" type="text" maxlength="60" placeholder="Ex.: Operações" required />
+          </label>
+          <label>
+            <span>Descrição</span>
+            <input id="boardDescriptionInput" type="text" maxlength="140" placeholder="Descrição do quadro" />
+          </label>
+          <label>
+            <span>Permissão</span>
+            <select id="boardPermissionInput">
+              <option value="owner">Proprietário</option>
+              <option value="editor">Editor</option>
+              <option value="viewer">Visualizador</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="board-form-actions">
+          <button type="submit" class="primary-btn">Criar quadro</button>
+          <button type="button" id="cancelBoardBtn" class="secondary-btn">Cancelar</button>
+        </div>
       </form>
 
-      <main class="board">
-        <section class="column" data-status="todo">
-          <header>
-            <h2>A fazer</h2>
-            <span class="count" id="count-todo">0</span>
-          </header>
-          <div class="task-list" id="todo"></div>
-        </section>
+      <main class="workspace">
+        <aside class="board-sidebar">
+          <div class="sidebar-header">
+            <h2>Meus quadros</h2>
+          </div>
+          <div id="boardList" class="board-list"></div>
+        </aside>
 
-        <section class="column" data-status="doing">
-          <header>
-            <h2>Em andamento</h2>
-            <span class="count" id="count-doing">0</span>
-          </header>
-          <div class="task-list" id="doing"></div>
-        </section>
+        <section class="board-panel">
+          <div id="selectedBoardSummary" class="selected-board-summary"></div>
 
-        <section class="column" data-status="done">
-          <header>
-            <h2>Concluído</h2>
-            <span class="count" id="count-done">0</span>
-          </header>
-          <div class="task-list" id="done"></div>
+          <div id="boardEmptyState" class="board-empty hidden">
+            Nenhum quadro ativo disponível para este usuário.
+          </div>
+
+          <form id="taskForm" class="task-form hidden">
+            <input id="taskInput" type="text" maxlength="80" placeholder="Descreva a tarefa" required />
+            <button type="submit" class="primary-btn">Adicionar</button>
+            <button type="button" id="cancelTaskBtn" class="secondary-btn">Cancelar</button>
+          </form>
+
+          <div class="board">
+            <section class="column" data-status="todo">
+              <header>
+                <h2>A fazer</h2>
+                <span class="count" id="count-todo">0</span>
+              </header>
+              <div class="task-list" id="todo"></div>
+            </section>
+
+            <section class="column" data-status="doing">
+              <header>
+                <h2>Em andamento</h2>
+                <span class="count" id="count-doing">0</span>
+              </header>
+              <div class="task-list" id="doing"></div>
+            </section>
+
+            <section class="column" data-status="done">
+              <header>
+                <h2>Concluído</h2>
+                <span class="count" id="count-done">0</span>
+              </header>
+              <div class="task-list" id="done"></div>
+            </section>
+          </div>
         </section>
       </main>
     </div>
