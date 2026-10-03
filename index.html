@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KanbanMob</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Board</p>
+          <h1>KanbanMob</h1>
+        </div>
+        <button id="addTaskBtn" class="primary-btn">+ Nova tarefa</button>
+      </header>
+
+      <form id="taskForm" class="task-form hidden">
+        <input id="taskInput" type="text" maxlength="80" placeholder="Descreva a tarefa" required />
+        <button type="submit" class="primary-btn">Adicionar</button>
+        <button type="button" id="cancelTaskBtn" class="secondary-btn">Cancelar</button>
+      </form>
+
+      <main class="board">
+        <section class="column" data-status="todo">
+          <header>
+            <h2>A fazer</h2>
+            <span class="count" id="count-todo">0</span>
+          </header>
+          <div class="task-list" id="todo"></div>
+        </section>
+
+        <section class="column" data-status="doing">
+          <header>
+            <h2>Em andamento</h2>
+            <span class="count" id="count-doing">0</span>
+          </header>
+          <div class="task-list" id="doing"></div>
+        </section>
+
+        <section class="column" data-status="done">
+          <header>
+            <h2>Concluído</h2>
+            <span class="count" id="count-done">0</span>
+          </header>
+          <div class="task-list" id="done"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
